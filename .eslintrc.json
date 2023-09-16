@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "extends": ["airbnb", "prettier", "react-app", "plugin:import/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["simple-import-sort"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".d.ts", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
+  "rules": {
+    "import/no-default-export": "error",
+    "import/prefer-default-export": "off",
+    "import/no-relative-packages": "warn",
+    "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "react/prop-types": "off",
+    "arrow-body-style": "warn"
+  }
+}
