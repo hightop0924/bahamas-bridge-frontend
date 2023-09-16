@@ -1,0 +1,22 @@
+yarn add v1.22.19
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+success Saved 10 new dependencies.
+info Direct dependencies
+├─ eslint-config-prettier@9.0.0
+└─ eslint@8.49.0
+info All dependencies
+├─ @eslint-community/eslint-utils@4.4.0
+├─ @eslint-community/regexpp@4.8.1
+├─ @eslint/eslintrc@2.1.2
+├─ @eslint/js@8.49.0
+├─ @humanwhocodes/config-array@0.11.11
+├─ @humanwhocodes/module-importer@1.0.1
+├─ eslint-config-prettier@9.0.0
+├─ eslint@8.49.0
+├─ graphemer@1.4.0
+└─ is-path-inside@3.0.3
+Done in 19.43s.

@@ -46,8 +46,14 @@
   "scripts": {
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "eject": "react-scripts eject",
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "lint": "eslint \"./src/**/*.{js,jsx}\""
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0"
   }
 }
