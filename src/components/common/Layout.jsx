@@ -46,6 +46,6 @@ export const Layout = ({ children }) => (
       {children}
     </Flex>
     <Footer />
-    <TermsOfServiceModal />
+    {/* <TermsOfServiceModal /> */}
   </Flex>
 );
