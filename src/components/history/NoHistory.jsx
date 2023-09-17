@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export const NoHistory = () => (
   <Flex
     w="100%"
-    background="white"
+    background="#FFE6FF"
     boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
     borderRadius="1rem"
     p={8}

@@ -71,7 +71,7 @@ export const BridgeHistory = ({ page }) => {
         onClose={handleModalClose}
       />
       <AuspiciousGasWarning />
-      <GraphHealthWarning />
+      {/* <GraphHealthWarning /> */}
       <ManualClaim handleClaimError={handleClaimError} />
       <Flex justify="space-between" align="center" mb={4}>
         <Text fontSize="xl" fontWeight="bold">
