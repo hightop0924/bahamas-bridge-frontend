@@ -47,7 +47,7 @@ export const isRebasingToken = token => {
 
 const ExceptionsLink = ({ msg }) => (
   <Link
-    href="https://www.xdaichain.com/for-users/bridges/omnibridge/exceptions#rebasing-tokens"
+    href="https://www.xdaichain.com/for-users/bridges/bahamahbridge/exceptions#rebasing-tokens"
     color="blue.500"
     isExternal
   >

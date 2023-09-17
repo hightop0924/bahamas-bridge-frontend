@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "@omnibridge/dapp",
+    "name": "@bahamahbridge/dapp",
     "version": "1.0.0",
     "browserslist": {
       "production": [

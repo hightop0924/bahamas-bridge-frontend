@@ -30,7 +30,7 @@ export const isInflationaryToken = token => {
 
 const ExceptionsLink = ({ msg }) => (
   <Link
-    href="https://www.xdaichain.com/for-users/bridges/omnibridge/exceptions"
+    href="https://www.xdaichain.com/for-users/bridges/bahamahbridge/exceptions"
     color="blue.500"
     isExternal
   >
