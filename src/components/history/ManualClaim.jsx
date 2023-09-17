@@ -66,7 +66,6 @@ export const ManualClaim = ({ handleClaimError }) => {
       align="center"
       bg="white"
       p="1rem"
-      background="#FFE6FF"
       borderRadius="0.5rem"
       boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
       direction={{ base: 'column', lg: 'row' }}

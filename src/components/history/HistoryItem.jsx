@@ -38,6 +38,7 @@ const Tag = ({ bg, txt }) => (
     fontSize="xs"
     color="white"
     fontWeight="600"
+    background="#FFE6FF"
     w="auto"
   >
     <Text>{txt}</Text>

@@ -34,6 +34,7 @@ export const HistoryPagination = ({ numPages, currentPage }) => {
       py={{ base: 4, sm: 8 }}
       mb={4}
       align="center"
+      background="#FFE6FF"
       justify={{ base: 'center', lg: 'flex-end' }}
       fontSize="sm"
     >

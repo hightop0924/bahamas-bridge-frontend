@@ -103,6 +103,7 @@ export const BridgeHistory = ({ page }) => {
             fontSize="sm"
             px={4}
             mb={4}
+            background="#FFE6FF"
             display={{ base: 'none', md: 'grid' }}
           >
             <Text>Date</Text>

@@ -76,6 +76,7 @@ export const FromToken = () => {
       mr={{ base: 2, lg: -6 }}
       position="relative"
       borderRadius="0.25rem"
+      background={{ base: '#EEF4FD', lg: 'transparent' }}
       border={{ base: '1px solid #DAE3F0', lg: 'none' }}
       minH={smallScreen ? '5rem' : 8}
       minW={smallScreen ? '15rem' : undefined}
@@ -85,7 +86,7 @@ export const FromToken = () => {
         <svg width="100%" viewBox="0 0 381 94" fill="none">
           <path
             d="M359.745 4.703A7.5 7.5 0 00353.008.5H8A7.5 7.5 0 00.5 8v78A7.5 7.5 0 008 93.5h345.008a7.5 7.5 0 006.737-4.203l19.085-39a7.499 7.499 0 000-6.594l-19.085-39z"
-            fill="#fff"
+            fill="#EEF4FD"
             stroke="#DAE3F0"
           />
         </svg>
@@ -111,7 +112,6 @@ export const FromToken = () => {
               cursor="pointer"
               onClick={onOpen}
               zIndex={1}
-              background="white"
             >
               <Flex
                 justify="center"
