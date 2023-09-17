@@ -11,6 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import LoadingImage from 'assets/loading.svg';
+import Logo from 'assets/bahamas_logo.png';
 import { ProgressRing } from 'components/common/ProgressRing';
 import { ClaimTokensModal } from 'components/modals/ClaimTokensModal';
 import { ClaimTransferModal } from 'components/modals/ClaimTransferModal';
@@ -135,7 +136,7 @@ const BridgeLoader = ({
         ) : (
           <ModalContent background="none" boxShadow="none" borderRadius="0">
             <Flex direction="column" align="center" justify="center">
-              <Image src={LoadingImage} mb={4} />
+              <Image src={Logo} width={30} height={30} mb={4} />
               <Text color="white" fontWeight="bold">
                 Loading ...
               </Text>

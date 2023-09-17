@@ -50,7 +50,7 @@ export const BridgeTokens = () => {
       {fromToken && (
         <Flex
           maxW="75rem"
-          background="white"
+          background="#FFE6FF"
           boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
           borderRadius="1rem"
           direction="column"
@@ -113,7 +113,7 @@ export const BridgeTokens = () => {
             <ToToken />
           </Grid>
           <VStack spacing={2} w="100%">
-            <AdvancedMenu />
+            {/* <AdvancedMenu /> */}
             <SystemFeedback {...{ tokenLimits, fetching, refresh }} />
           </VStack>
         </Flex>

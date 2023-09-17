@@ -12,6 +12,7 @@ import {
 import LoadingImage from 'assets/loading.svg';
 import { useWeb3Context } from 'contexts/Web3Context';
 import { useBridgeDirection } from 'hooks/useBridgeDirection';
+import Logo from 'assets/bahamas_logo.png';
 import React from 'react';
 
 const getTransactionString = hash => {
@@ -84,7 +85,7 @@ export const LoadingModal = ({ loadingText, txHash, chainId }) => {
         ) : (
           <ModalContent background="none" boxShadow="none" borderRadius="0">
             <Flex direction="column" align="center" justify="center">
-              <Image src={LoadingImage} mb={4} />
+              <Image src={Logo} width={30} height={30} mb={4} />
               <Text color="white" fontWeight="bold">
                 Loading ...
               </Text>

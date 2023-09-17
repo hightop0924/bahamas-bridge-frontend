@@ -9,13 +9,13 @@ import React from 'react';
 
 export const TokenWarnings = ({ token, noShadow = false }) =>
   token ? (
-    <>
-      <StakeTokenWarning {...{ token, noShadow }} />
+    <div>
+      {/* <StakeTokenWarning {...{ token, noShadow }} />
       <BSCGCTokenWarnings {...{ token, noShadow }} />
       <BSCETHTokenWarnings {...{ token, noShadow }} />
       <DaiWarning {...{ token, noShadow }} />
       <RebasingTokenWarning {...{ token, noShadow }} />
       <SafeMoonTokenWarning {...{ token, noShadow }} />
-      <GCOriginOnBSCTokenWarning {...{ token, noShadow }} />
-    </>
+      <GCOriginOnBSCTokenWarning {...{ token, noShadow }} /> */}
+    </div>
   ) : null;

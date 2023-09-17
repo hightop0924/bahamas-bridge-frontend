@@ -6,7 +6,8 @@ import {
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import Logo from 'assets/logo.svg';
+// import Logo from 'assets/logo.svg';
+import Logo from 'assets/bahamas_logo.png';
 import { BridgeDropdown } from 'components/common/BridgeDropdown';
 import { UpdateSettings } from 'components/common/UpdateSettings';
 import { WalletSelector } from 'components/common/WalletSelector';
@@ -67,8 +68,8 @@ export const Header = () => {
       <Flex justify="space-between" h={20} align="center">
         <Link to="/">
           <Flex justify="space-around" align="center">
-            <Image src={Logo} mr={4} />
-            <Text fontWeight="bold">OmniBridge</Text>
+            <Image width={10} height={10} src={Logo} mr={4} />
+            <Text fontWeight="bold">Bahamas Network Bridge</Text>
           </Flex>
         </Link>
         <Button
@@ -118,7 +119,7 @@ export const Header = () => {
           </>
         )}
         <WalletSelector close={() => setOpen(false)} />
-        <BridgeDropdown close={() => setOpen(false)} />
+        {/* <BridgeDropdown close={() => setOpen(false)} /> */}
       </Stack>
     </Flex>
   );
