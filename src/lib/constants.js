@@ -85,7 +85,7 @@ export const networkNames = {
   4: 'Rinkeby Testnet',
   5: 'Görli Testnet',
   42: 'Kovan Testnet',
-  56: 'Binance Smart Chain',
+  56: 'Bahamas Network',
   77: 'Sokol Testnet',
   99: 'POA Network',
   100: 'Gnosis Chain',

@@ -119,7 +119,7 @@ export const Header = () => {
           </>
         )}
         <WalletSelector close={() => setOpen(false)} />
-        {/* <BridgeDropdown close={() => setOpen(false)} /> */}
+        <BridgeDropdown close={() => setOpen(false)} />
       </Stack>
     </Flex>
   );

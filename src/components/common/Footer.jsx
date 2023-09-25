@@ -50,7 +50,7 @@ export const Footer = () => {
         </Box> */}
         <Box _hover={{ color: 'blue.500' }} transition="0.25s">
           <a
-            href="https://twitter.com/bahamas"
+            href="https://twitter.com/bahamasnetwork"
             rel="noreferrer noopener"
             target="_blank"
           >
@@ -59,7 +59,7 @@ export const Footer = () => {
         </Box>
         <Box _hover={{ color: 'blue.500' }} transition="0.25s">
           <a
-            href="https://t.me/bahamas"
+            href="https://t.me/bahamasnetwork"
             rel="noreferrer noopener"
             target="_blank"
           >

@@ -113,7 +113,7 @@ export const BridgeTokens = () => {
             <ToToken />
           </Grid>
           <VStack spacing={2} w="100%">
-            {/* <AdvancedMenu /> */}
+            <AdvancedMenu />
             <SystemFeedback {...{ tokenLimits, fetching, refresh }} />
           </VStack>
         </Flex>
