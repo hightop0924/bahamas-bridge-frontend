@@ -106,7 +106,7 @@ const KOVAN_SOKOL_BRIDGE_CONFIG = {
 };
 
 const ETH_BSC_BRIDGE_CONFIG = {
-  label: 'eth⥊bn',
+  label: 'eth⥊bsc',
   homeChainId: 56,
   foreignChainId: 1,
   enableForeignCurrencyBridge: false,
