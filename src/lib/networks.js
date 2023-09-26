@@ -204,13 +204,13 @@ export const defaultTokens = {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
       chainId: 56,
       symbol: 'WBNB',
-      name: 'Wrapped BN',
+      name: 'Wrapped BNB',
     },
     1: {
       address: '0x47f29657fd9f76710452208e9b12d8e9745e595c',
       chainId: 1,
       symbol: 'WBNB',
-      name: 'Wrapped BN from BSC',
+      name: 'Wrapped BNB from BSC',
     },
   },
 };

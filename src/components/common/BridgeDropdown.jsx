@@ -55,7 +55,7 @@ export const BridgeDropdown = ({ close }) => {
         </Text>
       </MenuButton>
       <MenuList border="none" boxShadow="0 0.5rem 1rem #CADAEF" zIndex="3">
-        {Object.entries(networks).slice(0, 1).map(([key, { label }]) => (
+      {Object.entries(networks).map(([key, { label }]) => (
           <MenuItem
             value={key}
             onClick={setItem}
