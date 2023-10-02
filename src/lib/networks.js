@@ -135,15 +135,23 @@ const ETH_BN_BRIDGE_CONFIG = {
   homeChainId: 1619, 
   foreignChainId: 5,
   enableForeignCurrencyBridge: false,
+  foreignWrappedHomeCurrencyAddress: // Wrapped BN on Bahamas chain
+    '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
   homeWrappedForeignCurrencyAddress: // Wrapped ETH on Home chain
     '0x213e08e1e012594Bf9ADd96D8925616E58075dcC'.toLowerCase(),
   // TODO : change to mainnet BN
   wrappedForeignCurrencyAddress: // Wrapped ETH on Foreign chain 
     '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase(),
+
+
+
   foreignMediatorAddress:
-    '0x1F8Fe51536188d2499e8AF0ababF8C8bD1d76f5E'.toLowerCase(),
+    '0xb02f515Eb656AB1bEa0b5E468289935ae53B24cE'.toLowerCase(),
   homeMediatorAddress: // Common mediator functionality to handle operations related to token bridge messages sent to AMB bridge.
-    '0x36dFDD3ef0D1d9536f844763b19c18eD5944380D'.toLowerCase(),
+    '0x847DCDd48A494cAa8c5F48a2E5A1Df610D684D91'.toLowerCase(),
+
+
+
   foreignAmbAddress: // Foreign AMB Contract Address
     '0x3442e21ce6E36FFaD91D9B53B22F58DdD0760Af2'.toLowerCase(), 
   homeAmbAddress: // Home AMB Contract Address

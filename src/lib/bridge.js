@@ -365,15 +365,15 @@ export const relayTokens = async (
       return tokenContract.transferAndCall(mediator, amount, bytesData);
     }
     case 'dedicated-erc20': {
-      const abi = ['function relayTokens(address, uint256, bool)'];
+      const abi = ['function relayTokens(address, uint256)'];
       const mediatorContract = new Contract(mediator, abi, signer);
-      return mediatorContract.relayTokens(receiver, amount, false);
+      return mediatorContract.relayTokens(receiver, amount);
     }
     case 'erc20':
     default: {
-      const abi = ['function relayTokens(address, address, uint256, bool)'];
+      const abi = ['function relayTokens(address, address, uint256)'];
       const mediatorContract = new Contract(mediator, abi, signer);
-      return mediatorContract.relayTokens(token.address, receiver, amount, true);
+        return mediatorContract.relayTokens(token.address, receiver, amount);
     }
-  }
+  } 
 };

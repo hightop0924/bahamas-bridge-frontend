@@ -44,13 +44,14 @@ export const TransferButton = ({ approval, isValid, tokenLimits }) => {
     !!token && allowed && !toAmountLoading && !isBridgingDisabled && isValid;
 
   const valid = useCallback(() => {
+    console.log("HHHHHHH token limit:", amount, tokenLimits.remainingLimit, tokenLimits.minPerTx);
     if (!providerChainId) {
       showError('Please connect wallet');
     } else if (providerChainId !== token?.chainId) {
       showError(`Please switch to ${getNetworkName(token?.chainId)}`);
     } else if (
       tokenLimits &&
-      (amount.gt(tokenLimits.remainingLimit) ||
+      (amount.gt(tokenLimits.remainingLimit) || 
         tokenLimits.remainingLimit.lt(tokenLimits.minPerTx))
     ) {
       showError(

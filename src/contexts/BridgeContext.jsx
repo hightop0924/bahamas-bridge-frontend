@@ -15,6 +15,7 @@ import {
   logError,
   parseValue,
 } from 'lib/helpers';
+import { networks } from 'lib/networks';
 import { fetchTokenDetails } from 'lib/token';
 import React, {
   useCallback,
@@ -209,7 +210,7 @@ export const BridgeProvider = ({ children }) => {
           foreignChainId,
         },
       );
-      // setTxHash(tx.hash);
+      setTxHash(tx.hash);
     } catch (transferError) {
       setLoading(false);
       logError({

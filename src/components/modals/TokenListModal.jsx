@@ -36,7 +36,7 @@ import {
   uniqueTokens,
 } from 'lib/helpers';
 import { ETH_BSC_BRIDGE } from 'lib/networks';
-import { fetchTokenBalanceWithProvider } from 'lib/token';
+import { fetchTokenBalanceWithProvider, fetchTokenDetails } from 'lib/token';
 import { fetchTokenList } from 'lib/tokenList';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
