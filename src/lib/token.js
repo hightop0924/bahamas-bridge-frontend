@@ -161,6 +161,7 @@ export const approveToken = async (
 ) => {
   const abi = ['function approve(address, uint256)'];
   const tokenContract = new Contract(address, abi, ethersProvider.getSigner());
+  console.log("HHW approve:", mediator, amount);
   return tokenContract.approve(mediator, amount);
 };
 

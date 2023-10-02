@@ -1,4 +1,4 @@
-import 'focus-visible/dist/focus-visible';
+import 'focus-visible';
 
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';

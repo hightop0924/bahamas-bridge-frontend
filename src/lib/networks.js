@@ -1,13 +1,16 @@
 import {
+  ETH_BN_BRIDGE,
   BSC_XDAI_BRIDGE,
   ETH_BSC_BRIDGE,
   ETH_XDAI_BRIDGE,
   KOVAN_SOKOL_BRIDGE,
   nativeCurrencies,
   POA_XDAI_BRIDGE,
+  ADDRESS_ZERO,
 } from 'lib/constants';
 
 export {
+  ETH_BN_BRIDGE,
   BSC_XDAI_BRIDGE,
   ETH_BSC_BRIDGE,
   ETH_XDAI_BRIDGE,
@@ -109,7 +112,7 @@ const ETH_BSC_BRIDGE_CONFIG = {
   label: 'eth⥊bsc',
   homeChainId: 56,
   foreignChainId: 1,
-  enableForeignCurrencyBridge: false,
+  enableForeignCurrencyBridge: true,
   homeWrappedForeignCurrencyAddress: null,
   wrappedForeignCurrencyAddress:
     '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase(),
@@ -126,11 +129,38 @@ const ETH_BSC_BRIDGE_CONFIG = {
   tokensClaimDisabled: [],
 };
 
+const ETH_BN_BRIDGE_CONFIG = {
+  label: 'eth⥊bn',
+  // TODO : chanage to mainnets
+  homeChainId: 1619, 
+  foreignChainId: 5,
+  enableForeignCurrencyBridge: false,
+  homeWrappedForeignCurrencyAddress: // Wrapped ETH on Home chain
+    '0x213e08e1e012594Bf9ADd96D8925616E58075dcC'.toLowerCase(),
+  // TODO : change to mainnet BN
+  wrappedForeignCurrencyAddress: // Wrapped ETH on Foreign chain 
+    '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase(),
+  foreignMediatorAddress:
+    '0x1F8Fe51536188d2499e8AF0ababF8C8bD1d76f5E'.toLowerCase(),
+  homeMediatorAddress: // Common mediator functionality to handle operations related to token bridge messages sent to AMB bridge.
+    '0x36dFDD3ef0D1d9536f844763b19c18eD5944380D'.toLowerCase(),
+  foreignAmbAddress: // Foreign AMB Contract Address
+    '0x3442e21ce6E36FFaD91D9B53B22F58DdD0760Af2'.toLowerCase(), 
+  homeAmbAddress: // Home AMB Contract Address
+    '0xb02f515Eb656AB1bEa0b5E468289935ae53B24cE'.toLowerCase(),
+  foreignGraphName: 'dan13ram/mainnet-to-bsc-bahamahbridge',
+  homeGraphName: 'dan13ram/bsc-to-mainnet-bahamahbridge',
+  ambLiveMonitorPrefix: 'http://alm-bsc.herokuapp.com',
+  claimDisabled: false,
+  tokensClaimDisabled: [],
+}; 
+
 const ENABLED_BRIDGES = process.env.REACT_APP_ENABLED_BRIDGES.split(' ').map(
   b => b.toLowerCase(),
 );
 
 const bridgeInfo = {
+  [ETH_BN_BRIDGE]: ETH_BN_BRIDGE_CONFIG,
   [ETH_BSC_BRIDGE]: ETH_BSC_BRIDGE_CONFIG,
   [ETH_XDAI_BRIDGE]: ETH_XDAI_BRIDGE_CONFIG,
   [BSC_XDAI_BRIDGE]: BSC_XDAI_BRIDGE_CONFIG,
@@ -139,6 +169,7 @@ const bridgeInfo = {
 };
 
 const getNetworkConfig = bridges => {
+  console.log("Bridges:", bridges);
   if (bridges && bridges.length > 0 && bridgeInfo) {
     return bridges.reduce((t, b) => ({ ...t, [b]: bridgeInfo[b] }), {});
   }
@@ -211,6 +242,16 @@ export const defaultTokens = {
       chainId: 1,
       symbol: 'WBNB',
       name: 'Wrapped BNB from BSC',
+    },
+  },
+  // TODO : H2W - change to mainnet
+  [ETH_BN_BRIDGE]: {
+    1619: nativeCurrencies[1619],
+    5: {
+      address: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
+      chainId: 5,
+      symbol: 'WBN',
+      name: 'Wrapped BN from BN',
     },
   },
 };

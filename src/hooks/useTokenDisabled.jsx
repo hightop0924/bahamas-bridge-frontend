@@ -11,6 +11,7 @@ import { useBridgeDirection } from 'hooks/useBridgeDirection';
 import {
   ADDRESS_ZERO,
   BSC_XDAI_BRIDGE,
+  ETH_BN_BRIDGE,
   ETH_BSC_BRIDGE,
   ETH_XDAI_BRIDGE,
 } from 'lib/constants';
@@ -19,7 +20,7 @@ import { networks } from 'lib/networks';
 import { getEthersProvider } from 'lib/providers';
 import { useCallback, useEffect, useState } from 'react';
 
-const GC_BSC_OMNIBRIDGE = networks[BSC_XDAI_BRIDGE].foreignMediatorAddress;
+const GC_BSC_OMNIBRIDGE = networks[ETH_BN_BRIDGE].foreignMediatorAddress;
 
 export const useTokenGCOriginOnBSC = token => {
   const { bridgeDirection } = useBridgeDirection();

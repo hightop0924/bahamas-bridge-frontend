@@ -1,6 +1,7 @@
 import {
   BSC_XDAI_BRIDGE,
   ETH_BSC_BRIDGE,
+  ETH_BN_BRIDGE,
   ETH_XDAI_BRIDGE,
   KOVAN_SOKOL_BRIDGE,
   POA_XDAI_BRIDGE,
@@ -242,12 +243,17 @@ const POA_XDAI_OVERRIDES = {
 
 const ETH_BSC_OVERRIDES = {};
 
+// TODO : H2W - append contents
+const ETH_BN_OVERRIDES = {};
+
 const OVERRIDES = {
   [ETH_XDAI_BRIDGE]: ETH_XDAI_OVERRIDES,
   [KOVAN_SOKOL_BRIDGE]: KOVAN_SOKOL_OVERRIDES,
   [BSC_XDAI_BRIDGE]: BSC_XDAI_OVERRIDES,
   [POA_XDAI_BRIDGE]: POA_XDAI_OVERRIDES,
   [ETH_BSC_BRIDGE]: ETH_BSC_OVERRIDES,
+  // TODO : H2W - change to mainnet
+  [ETH_BN_BRIDGE]: ETH_BN_OVERRIDES,
 };
 
 export const isOverridden = (bridgeDirection, token) => {

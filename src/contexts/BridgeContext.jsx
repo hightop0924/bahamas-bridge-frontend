@@ -157,6 +157,8 @@ export const BridgeProvider = ({ children }) => {
             getBridgeChainId(tokenWithoutMode.chainId),
           ),
         ]);
+        console.log("From Token:", token);
+        console.log("To Token:", gotToToken);
         setTokens({ fromToken: token, toToken: { ...token, ...gotToToken } });
         return true;
       } catch (tokenDetailsError) {
@@ -183,6 +185,17 @@ export const BridgeProvider = ({ children }) => {
     try {
       setLoading(true);
       setTxHash();
+      console.log("HHHHHHH:", 
+      fromToken,
+      receiver || account,
+      fromAmount,
+      {
+        shouldReceiveNativeCur:
+          shouldReceiveNativeCur &&
+          toToken?.address === ADDRESS_ZERO &&
+          toToken?.mode === 'NATIVE',
+        foreignChainId,
+      });
       const tx = await relayTokens(
         ethersProvider,
         fromToken,
@@ -196,7 +209,7 @@ export const BridgeProvider = ({ children }) => {
           foreignChainId,
         },
       );
-      setTxHash(tx.hash);
+      // setTxHash(tx.hash);
     } catch (transferError) {
       setLoading(false);
       logError({

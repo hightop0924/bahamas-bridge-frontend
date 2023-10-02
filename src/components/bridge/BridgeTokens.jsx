@@ -5,7 +5,7 @@ import { FromToken } from 'components/bridge/FromToken';
 import { SwitchButton } from 'components/bridge/SwitchButton';
 import { SystemFeedback } from 'components/bridge/SystemFeedback';
 import { ToToken } from 'components/bridge/ToToken';
-// import { CoinzillaBannerAd } from 'components/common/CoinzillaBannerAd';
+// import { CoinzillaBannerAd } from 'components/common/CoinzillaBannerAd'; 
 // import { CoinzillaTextAd } from 'components/common/CoinzillaTextAd';
 import { BridgeLoadingModal } from 'components/modals/BridgeLoadingModal';
 import { GnosisSafeWarning } from 'components/warnings/GnosisSafeWarning';

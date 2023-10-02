@@ -176,7 +176,7 @@ export const TokenListModal = ({ isOpen, onClose, onCustom }) => {
             ),
           ),
         ];
-
+        console.log("HHW tokenlist", nativeCurrency, baseTokenList, customTokens)
         setTokenList(customTokenList);
       } catch (fetchTokensError) {
         logError({ fetchTokensError });

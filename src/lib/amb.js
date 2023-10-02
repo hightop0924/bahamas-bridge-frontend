@@ -15,7 +15,7 @@ export const fetchConfirmations = async (address, ethersProvider) => {
 };
 
 export const fetchAmbVersion = async (address, ethersProvider) => {
-  if (!ethersProvider) {
+  if (!ethersProvider || !address) {
     return { major: 0, minor: 0, patch: 0 };
   }
   const abi = [
