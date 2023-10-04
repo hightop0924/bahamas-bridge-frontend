@@ -5,7 +5,9 @@ import {
   ETH_XDAI_BRIDGE,
   KOVAN_SOKOL_BRIDGE,
   POA_XDAI_BRIDGE,
+  networks,
 } from 'lib/networks';
+import { ADDRESS_ZERO } from './constants';
 
 const OWLTokenOverride = {
   100: {
@@ -243,8 +245,30 @@ const POA_XDAI_OVERRIDES = {
 
 const ETH_BSC_OVERRIDES = {};
 
+
+// TODO : H2W - change to mainnets
+const BNTokenOverrideBNCurrency = {
+  5: {
+    mediator: networks[ETH_BN_BRIDGE].foreignMediatorAddress,
+    // BN Token on ethereum
+    from: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
+    to: ADDRESS_ZERO,
+    mode: 'erc20',
+  },
+  1619: {
+    mediator: networks[ETH_BN_BRIDGE].homeMediatorAddress,
+    from: ADDRESS_ZERO,
+    // BN Token on ethereum
+    to: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
+    mode: 'NATIVE',
+  },
+}
+
 // TODO : H2W - append contents
-const ETH_BN_OVERRIDES = {};
+const ETH_BN_OVERRIDES = {
+  ['0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7'.toLowerCase()]: BNTokenOverrideBNCurrency,
+  ['0x0000000000000000000000000000000000000000'.toLowerCase()]: BNTokenOverrideBNCurrency,
+};
 
 const OVERRIDES = {
   [ETH_XDAI_BRIDGE]: ETH_XDAI_OVERRIDES,

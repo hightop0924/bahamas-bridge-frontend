@@ -105,7 +105,15 @@ export const BridgeProvider = ({ children }) => {
       if (!fromToken || !toToken) return;
       setToAmountLoading(true);
       const amount = parseValue(inputAmount, fromToken.decimals);
-      const gotToAmount = await getToAmount(amount);
+      let gotToAmount;
+      if (fromToken.mode == "NATIVE" || toToken.mode == "NATIVE") {
+        if (toToken.decimals - fromToken.decimals > 0)
+          gotToAmount = amount.mul(BigNumber.from(10).pow(toToken.decimals - fromToken.decimals));
+        else 
+          gotToAmount = amount.div(BigNumber.from(10).pow(fromToken.decimals - toToken.decimals));
+      } else {
+        gotToAmount = await getToAmount(amount);
+      }
       setAmounts({ fromAmount: amount, toAmount: gotToAmount });
       setToAmountLoading(false);
     },
@@ -158,8 +166,8 @@ export const BridgeProvider = ({ children }) => {
             getBridgeChainId(tokenWithoutMode.chainId),
           ),
         ]);
-        console.log("From Token:", token);
-        console.log("To Token:", gotToToken);
+        console.log("HHHHHHH From Token:", token);
+        console.log("HHHHHHH To Token:", gotToToken);
         setTokens({ fromToken: token, toToken: { ...token, ...gotToToken } });
         return true;
       } catch (tokenDetailsError) {
@@ -172,7 +180,7 @@ export const BridgeProvider = ({ children }) => {
           duration: isQueryToken ? 2000 : null,
           isClosable: !isQueryToken,
         });
-        logError({ tokenDetailsError });
+        logError("HHHHHHHH", { tokenDetailsError });
         return false;
       }
     },
@@ -186,7 +194,7 @@ export const BridgeProvider = ({ children }) => {
     try {
       setLoading(true);
       setTxHash();
-      console.log("HHHHHHH:", 
+      console.log("HHHHHHH transfer:", 
       fromToken,
       receiver || account,
       fromAmount,
@@ -196,7 +204,7 @@ export const BridgeProvider = ({ children }) => {
           toToken?.address === ADDRESS_ZERO &&
           toToken?.mode === 'NATIVE',
         foreignChainId,
-      });
+      }, toToken);
       const tx = await relayTokens(
         ethersProvider,
         fromToken,
@@ -209,6 +217,7 @@ export const BridgeProvider = ({ children }) => {
             toToken?.mode === 'NATIVE',
           foreignChainId,
         },
+        toToken
       );
       setTxHash(tx.hash);
     } catch (transferError) {

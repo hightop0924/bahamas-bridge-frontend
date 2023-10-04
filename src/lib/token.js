@@ -4,6 +4,7 @@ import { ADDRESS_ZERO } from './constants';
 import {
   getMediatorAddress,
   getMediatorAddressWithoutOverride,
+  getNativeCurrency,
   logError,
 } from './helpers';
 import { getOverriddenMode, isOverridden } from './overrides';
@@ -137,6 +138,13 @@ const fetchTokenDetailsFromContract = async token => {
 
 export const fetchTokenDetails = async (bridgeDirection, token) => {
   const mediatorAddress = getMediatorAddress(bridgeDirection, token);
+  if (token.address == ADDRESS_ZERO) {
+    return {
+      ...getNativeCurrency(token.chainId),
+      mediator: mediatorAddress
+    }
+  }
+
   const [{ name, symbol, decimals }, mode] = await Promise.all([
     fetchTokenDetailsFromContract(token),
     fetchMode(bridgeDirection, token),

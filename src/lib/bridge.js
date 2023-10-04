@@ -15,9 +15,8 @@ const getToName = async (fromToken, toChainId, toAddress) => {
   const { name } = fromToken;
   if (toAddress === ADDRESS_ZERO) {
     const fromName = name || (await fetchTokenName(fromToken));
-    return `${fromName} on ${
-      toChainId === 100 ? 'GC' : getNetworkLabel(toChainId)
-    }`;
+    return `${fromName} on ${toChainId === 100 ? 'GC' : getNetworkLabel(toChainId)
+      }`;
   }
   return fetchTokenName({ chainId: toChainId, address: toAddress });
 };
@@ -135,6 +134,13 @@ export const fetchToAmount = async (
   const isHome = homeChainId === toToken.chainId;
   const tokenAddress = isHome ? toToken.address : fromToken.address;
   const mediatorAddress = isHome ? toToken.mediator : fromToken.mediator;
+
+  if (fromToken.mode == "NATIVE" || toToken.mode == "NATIVE") {
+    if (toToken.decimals - fromToken.decimals > 0)
+      return fromAmount.mul(BigNumber.from(10).pow(toToken.decimals - fromToken.decimals));
+    return fromAmount.div(BigNumber.from(10).pow(fromToken.decimals - toToken.decimals));
+  }
+
   if (
     mediatorAddress !== homeMediatorAddress ||
     !tokenAddress ||
@@ -222,23 +228,23 @@ export const fetchTokenLimits = async (
 
   const abi = isDedicatedMediatorToken
     ? [
-        'function getCurrentDay() view returns (uint256)',
-        'function minPerTx() view returns (uint256)',
-        'function executionMaxPerTx() view returns (uint256)',
-        'function dailyLimit() view returns (uint256)',
-        'function totalSpentPerDay(uint256) view returns (uint256)',
-        'function executionDailyLimit() view returns (uint256)',
-        'function totalExecutedPerDay(uint256) view returns (uint256)',
-      ]
+      'function getCurrentDay() view returns (uint256)',
+      'function minPerTx() view returns (uint256)',
+      'function executionMaxPerTx() view returns (uint256)',
+      'function dailyLimit() view returns (uint256)',
+      'function totalSpentPerDay(uint256) view returns (uint256)',
+      'function executionDailyLimit() view returns (uint256)',
+      'function totalExecutedPerDay(uint256) view returns (uint256)',
+    ]
     : [
-        'function getCurrentDay() view returns (uint256)',
-        'function minPerTx(address) view returns (uint256)',
-        'function executionMaxPerTx(address) view returns (uint256)',
-        'function dailyLimit(address) view returns (uint256)',
-        'function totalSpentPerDay(address, uint256) view returns (uint256)',
-        'function executionDailyLimit(address) view returns (uint256)',
-        'function totalExecutedPerDay(address, uint256) view returns (uint256)',
-      ];
+      'function getCurrentDay() view returns (uint256)',
+      'function minPerTx(address) view returns (uint256)',
+      'function executionMaxPerTx(address) view returns (uint256)',
+      'function dailyLimit(address) view returns (uint256)',
+      'function totalSpentPerDay(address, uint256) view returns (uint256)',
+      'function executionDailyLimit(address) view returns (uint256)',
+      'function totalExecutedPerDay(address, uint256) view returns (uint256)',
+    ];
 
   try {
     const fromMediatorContract = new Contract(
@@ -256,11 +262,11 @@ export const fetchTokenLimits = async (
 
     const fromTokenAddress =
       fromToken.address === ADDRESS_ZERO && fromToken.mode === 'NATIVE'
-        ? wrappedForeignCurrencyAddress
+        ? ADDRESS_ZERO
         : fromToken.address;
     const toTokenAddress =
       toToken.address === ADDRESS_ZERO && toToken.mode === 'NATIVE'
-        ? wrappedForeignCurrencyAddress
+        ? ADDRESS_ZERO
         : toToken.address;
 
     if (toTokenAddress === ADDRESS_ZERO || fromTokenAddress === ADDRESS_ZERO)
@@ -278,7 +284,7 @@ export const fetchTokenLimits = async (
       executionDailyLimit,
       totalExecutedPerDay,
     ] = isDedicatedMediatorToken
-      ? await Promise.all([
+        ? await Promise.all([
           fromMediatorContract.minPerTx(),
           fromMediatorContract.dailyLimit(),
           fromMediatorContract.totalSpentPerDay(currentDay),
@@ -286,7 +292,7 @@ export const fetchTokenLimits = async (
           toMediatorContract.executionDailyLimit(),
           toMediatorContract.totalExecutedPerDay(currentDay),
         ])
-      : await Promise.all([
+        : await Promise.all([
           fromMediatorContract.minPerTx(fromTokenAddress),
           fromMediatorContract.dailyLimit(fromTokenAddress),
           fromMediatorContract.totalSpentPerDay(fromTokenAddress, currentDay),
@@ -343,6 +349,7 @@ export const relayTokens = async (
   receiver,
   amount,
   { shouldReceiveNativeCur, foreignChainId },
+  toToken
 ) => {
   const signer = ethersProvider.getSigner();
   const { mode, mediator, address, helperContractAddress } = token;
@@ -351,6 +358,9 @@ export const relayTokens = async (
       const abi = [
         'function wrapAndRelayTokens(address _receiver) public payable',
       ];
+      if (!helperContractAddress || helperContractAddress == undefined) {
+        helperContractAddress = getHelperContract(token.chainId);
+      }
       const helperContract = new Contract(helperContractAddress, abi, signer);
       return helperContract.wrapAndRelayTokens(receiver, { value: amount });
     }
@@ -371,9 +381,17 @@ export const relayTokens = async (
     }
     case 'erc20':
     default: {
+      if (toToken.mode == "NATIVE") {
+        const abi = ['function relayTokensAndCall(address, address, uint256, bytes)'];
+        const mediatorContract = new Contract(mediator, abi, signer);
+        const foreignHelperContract = getHelperContract(toToken.chainId);
+        const bytesData = `${receiver.replace('0x', '')}`;
+        console.log("HHHHH relayTokens:", token.address, foreignHelperContract, amount, receiver);
+        return mediatorContract.relayTokensAndCall(token.address, foreignHelperContract, amount, receiver);
+      } 
       const abi = ['function relayTokens(address, address, uint256)'];
       const mediatorContract = new Contract(mediator, abi, signer);
-        return mediatorContract.relayTokens(token.address, receiver, amount);
+      return mediatorContract.relayTokens(token.address, receiver, amount);
     }
-  } 
+  }
 };
