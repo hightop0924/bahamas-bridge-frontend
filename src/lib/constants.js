@@ -100,7 +100,7 @@ export const nativeCurrencyMediators = {
   56: '0xefc33f8b2c4d51005585962be7ea20518ea9fd0d'.toLowerCase(),
   99: '0xF6a1Ad94d29679388e533B63bfE1Fd6f1680D23B'.toLowerCase(),
   // TODO : H2W - modify WETH Router Address
-  1619: '0x24dBa9C18390354fDECa017d84dd29Db2cd08D40'.toLowerCase(),
+  1619: '0xE623a0b79ED7EE49B8d931e6145B4c587ca0679b'.toLowerCase(),
   35: ''.toLowerCase()
 };
 

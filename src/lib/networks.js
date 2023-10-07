@@ -141,8 +141,8 @@ const ETH_BN_BRIDGE_CONFIG = {
   wrappedForeignCurrencyAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase(),
 
   // TODO : H2W - change to mainnet BN
-  foreignMediatorAddress: '0xb3482c9D6B64A8d222Cf69258896cF113f2BD725'.toLowerCase(),
-  homeMediatorAddress: '0x1C4709758FE456F7030C0D1901B3bC5f29CF4ede'.toLowerCase(),
+  foreignMediatorAddress: '0x54EA23e5cb714A6bAA18d3B63d70EA54C24e0b5a'.toLowerCase(),
+  homeMediatorAddress: '0x8A544A2910C420273d26543402ab7DDA63bE8Bc3'.toLowerCase(),
   // Foreign AMB Contract Address
   foreignAmbAddress: '0x3442e21ce6E36FFaD91D9B53B22F58DdD0760Af2'.toLowerCase(), 
   // Home AMB Contract Address

@@ -194,17 +194,7 @@ export const BridgeProvider = ({ children }) => {
     try {
       setLoading(true);
       setTxHash();
-      console.log("HHHHHHH transfer:", 
-      fromToken,
-      receiver || account,
-      fromAmount,
-      {
-        shouldReceiveNativeCur:
-          shouldReceiveNativeCur &&
-          toToken?.address === ADDRESS_ZERO &&
-          toToken?.mode === 'NATIVE',
-        foreignChainId,
-      }, toToken);
+      
       const tx = await relayTokens(
         ethersProvider,
         fromToken,
