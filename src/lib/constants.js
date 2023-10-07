@@ -83,8 +83,8 @@ export const nativeCurrencies = {
     mode: 'NATIVE',
   },
   // TODO : H2W - change to mainnet
-  1619: {
-    chainId: 1619,
+  35: {
+    chainId: 35,
     decimals: 18,
     logoURI: POA_CURRENCY_LOGO,
     name: 'Bahamas Coin',
@@ -100,7 +100,7 @@ export const nativeCurrencyMediators = {
   56: '0xefc33f8b2c4d51005585962be7ea20518ea9fd0d'.toLowerCase(),
   99: '0xF6a1Ad94d29679388e533B63bfE1Fd6f1680D23B'.toLowerCase(),
   // TODO : H2W - modify WETH Router Address
-  1619: '0x24dBa9C18390354fDECa017d84dd29Db2cd08D40'.toLowerCase(),
+  1619: '0x95e339e7C87e1022f63a035313FB84d75c544991'.toLowerCase(),
   35: ''.toLowerCase()
 };
 
@@ -116,6 +116,7 @@ export const networkNames = {
   100: 'Gnosis Chain',
   // TODO : H2W - change to mainnet
   1619: 'Bahamas Testnet',
+  35: 'Bahamas Mainnet',
 };
 
 export const networkLabels = {
@@ -130,6 +131,7 @@ export const networkLabels = {
   100: 'Gnosis Chain',
   // TODO : H2W - change to mainnet
   1619: 'Bahamas Testnet',
+  35: 'Bahamas Mainnet',
 };
 
 export const networkCurrencies = {
@@ -163,6 +165,10 @@ export const networkCurrencies = {
   },
   // TODO : H2W - change to mainnet
   1619: {
+    name: 'Bahamas',
+    symbol: 'BN',
+  },
+  35: {
     name: 'Bahamas',
     symbol: 'BN',
   },
@@ -240,6 +246,7 @@ export const defaultTokensUrl = {
   56: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/tokenlist.json',
   // TODO : H2W - change to mainnet
   1619: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/tokenlist.json',
+  35: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/tokenlist.json',
 };
 
 export const GRAPH_HEALTH_ENDPOINT =

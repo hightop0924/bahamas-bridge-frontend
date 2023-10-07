@@ -217,7 +217,7 @@ export const getRPCKeys = bridgeDirection => {
     case ETH_BN_BRIDGE:
       return {
         homeRPCKey: BN_RPC_URL,
-        foreignRPCKey: GOERLI_RPC_URL,
+        foreignRPCKey: MAINNET_RPC_URL,
       };
     case KOVAN_SOKOL_BRIDGE:
     default:

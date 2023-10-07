@@ -19,7 +19,7 @@ const LOCAL_STORAGE_KEYS_MAP = {
   42: KOVAN_RPC_URL,
   56: BSC_RPC_URL,
   // TODO : H2W - change to mainnet
-  1619: BN_RPC_URL,
+  35: BN_RPC_URL,
   77: SOKOL_RPC_URL,
   99: POA_RPC_URL,
   100: XDAI_RPC_URL,

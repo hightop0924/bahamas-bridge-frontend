@@ -112,12 +112,12 @@ export const Header = () => {
         justify="center"
         spacing={{ base: 2, md: 0, lg: 2 }}
       >
-        {isConnected && (
+        {/* {isConnected && (
           <>
             <HistoryLink close={() => setOpen(false)} />
             <UpdateSettings close={() => setOpen(false)} />
           </>
-        )}
+        )} */}
         <WalletSelector close={() => setOpen(false)} />
         <BridgeDropdown close={() => setOpen(false)} />
       </Stack>

@@ -113,8 +113,12 @@ export const BridgeTokens = () => {
             <ToToken />
           </Grid>
           <VStack spacing={2} w="100%">
-            <AdvancedMenu />
-            <SystemFeedback {...{ tokenLimits, fetching, refresh }} />
+            <Text fontWeight="bold" textAlign="center">
+              This bridge is for only transfer of other tokens on Ethereum Mainnet to Bahamas Mainnet.<br/>
+              To transfer BN coins, please use the other bridge
+            </Text>
+            {/* <AdvancedMenu /> */}
+            {/* <SystemFeedback {...{ tokenLimits, fetching, refresh }} /> */}
           </VStack>
         </Flex>
       )}

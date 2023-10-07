@@ -23,16 +23,18 @@ export const useTransactionStatus = setMessage => {
   const totalConfirms = getTotalConfirms(chainId);
 
   const bridgeChainId = getBridgeChainId(chainId);
-  const { loading, setLoading, txHash, setTxHash } = useBridgeContext();
+  const { loading, setLoading, txHash, setTxHash, fromToken } = useBridgeContext();
   const [needsConfirmation, setNeedsConfirmation] = useState(false);
   const [loadingText, setLoadingText] = useState();
   const [confirmations, setConfirmations] = useState(0);
+  const [complete, setComplete] = useState(false);
 
   const completeReceipt = useCallback(() => {
     setTxHash();
     setLoading(false);
     setLoadingText();
     setConfirmations(0);
+    setComplete(true);
   }, [setLoading, setTxHash]);
 
   const incompleteReceipt = useCallback(() => {
@@ -159,5 +161,7 @@ export const useTransactionStatus = setMessage => {
     needsConfirmation,
     setNeedsConfirmation,
     confirmations,
+    complete,
+    setComplete
   };
 };

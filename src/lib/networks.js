@@ -131,9 +131,9 @@ const ETH_BSC_BRIDGE_CONFIG = {
 
 const ETH_BN_BRIDGE_CONFIG = {
   label: 'eth⥊bn',
-  // TODO : chanage to mainnets
-  homeChainId: 1619, 
-  foreignChainId: 5,
+  // TODO : H2W - chanage to mainnets
+  homeChainId: 35, 
+  foreignChainId: 1,
   enableForeignCurrencyBridge: false,
   // Wrapped ETH on Bahamas
   homeWrappedForeignCurrencyAddress: null, 
@@ -141,12 +141,12 @@ const ETH_BN_BRIDGE_CONFIG = {
   wrappedForeignCurrencyAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'.toLowerCase(),
 
   // TODO : H2W - change to mainnet BN
-  foreignMediatorAddress: '0xb3482c9D6B64A8d222Cf69258896cF113f2BD725'.toLowerCase(),
-  homeMediatorAddress: '0x1C4709758FE456F7030C0D1901B3bC5f29CF4ede'.toLowerCase(),
+  foreignMediatorAddress: '0xEa4F8813e90ad3cF147e8E6acB3ec0e1174d2B27'.toLowerCase(),
+  homeMediatorAddress: '0x0E8e330273374ab90f79710F34eA666972a5786d'.toLowerCase(),
   // Foreign AMB Contract Address
-  foreignAmbAddress: '0x3442e21ce6E36FFaD91D9B53B22F58DdD0760Af2'.toLowerCase(), 
+  foreignAmbAddress: '0x0cDe540C510FB6Df726deC65C505cf9200285f07'.toLowerCase(), 
   // Home AMB Contract Address
-  homeAmbAddress: '0xb02f515Eb656AB1bEa0b5E468289935ae53B24cE'.toLowerCase(),
+  homeAmbAddress: '0x0cDe540C510FB6Df726deC65C505cf9200285f07'.toLowerCase(),
 
   foreignGraphName: 'dan13ram/mainnet-to-bsc-bahamahbridge',
   homeGraphName: 'dan13ram/bsc-to-mainnet-bahamahbridge',
@@ -246,12 +246,12 @@ export const defaultTokens = {
   },
   // TODO : H2W - change to mainnet
   [ETH_BN_BRIDGE]: {
-    1619: nativeCurrencies[1619],
-    5: {
-      address: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
-      chainId: 5,
-      symbol: 'WBN',
-      name: 'Wrapped BN from BN',
+    35: nativeCurrencies[35],
+    1: {
+      address: '0xABD0061755A180052703f72F06CEf8c2Eb1384B6',
+      chainId: 1,
+      symbol: 'BN',
+      name: 'BN Token',
     },
   },
 };

@@ -248,25 +248,25 @@ const ETH_BSC_OVERRIDES = {};
 
 // TODO : H2W - change to mainnets
 const BNTokenOverrideBNCurrency = {
-  5: {
+  1: {
     mediator: networks[ETH_BN_BRIDGE].foreignMediatorAddress,
     // BN Token on ethereum
-    from: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
+    from: '0xABD0061755A180052703f72F06CEf8c2Eb1384B6',
     to: ADDRESS_ZERO,
     mode: 'erc20',
   },
-  1619: {
+  35: {
     mediator: networks[ETH_BN_BRIDGE].homeMediatorAddress,
     from: ADDRESS_ZERO,
     // BN Token on ethereum
-    to: '0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7',
+    to: '0xABD0061755A180052703f72F06CEf8c2Eb1384B6',
     mode: 'NATIVE',
   },
 }
 
 // TODO : H2W - append contents
 const ETH_BN_OVERRIDES = {
-  ['0x0Ba2B3884d0bFE1FcDf6b3E142b68DC36e022Cc7'.toLowerCase()]: BNTokenOverrideBNCurrency,
+  ['0xABD0061755A180052703f72F06CEf8c2Eb1384B6'.toLowerCase()]: BNTokenOverrideBNCurrency,
   ['0x0000000000000000000000000000000000000000'.toLowerCase()]: BNTokenOverrideBNCurrency,
 };
 
