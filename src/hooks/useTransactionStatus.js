@@ -41,6 +41,7 @@ export const useTransactionStatus = setMessage => {
     setLoading(false);
     setLoadingText();
     setConfirmations(0);
+    setComplete(true);
   }, [setLoading]);
 
   useEffect(() => {

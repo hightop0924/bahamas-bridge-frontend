@@ -138,7 +138,7 @@ const Success = ({
               <Flex
                 align={{ base: 'stretch', md: 'center' }}>
                 <Button px={12}
-                  onClick={() => { 
+                  onClick={() => {
                     setOpenDlg(false);
                     setComplete(false);
                   }}
@@ -291,7 +291,7 @@ export const BridgeLoadingModal = () => {
     setNeedsConfirmation,
     confirmations,
     complete,
-    setComplete    
+    setComplete
   } = useTransactionStatus(setMessage);
   const { neverShowClaims, needsSaving } = useSettings();
   const [isOpenDlg, setOpenDlg] = useState(false);
@@ -307,6 +307,7 @@ export const BridgeLoadingModal = () => {
       setFetching(true);
       setOpenDlg(true);
       setToToken(await fetchToToken(bridgeDirection, fromToken, getBridgeChainId(fromToken.chainId)));
+      console.log("HHHHHHHH Complete : ", fromToken, toToken);
       setFetching(false);
     }
   }, [complete, loading]);
@@ -325,10 +326,10 @@ export const BridgeLoadingModal = () => {
 
   const claimAllTokens = () =>
     txNeedsClaiming ||
-    neverShowClaims ||
-    needsSaving ||
-    loading ||
-    needsConfirmation ? null : (
+      neverShowClaims ||
+      needsSaving ||
+      loading ||
+      needsConfirmation ? null : (
       <ClaimTokensModal />
     );
 
@@ -370,8 +371,8 @@ export const BridgeLoadingModal = () => {
     <>
       {/* <Button
         onClick={() => { setOpenDlg(true) }}
-      >Open Modal</Button>
-      {completeDlg()} */}
+      >Open Modal</Button> */}
+      {completeDlg()}
       {claimTransfer()}
       {claimAllTokens()}
       {loader()}
