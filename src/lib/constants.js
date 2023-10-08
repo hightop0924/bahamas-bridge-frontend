@@ -204,12 +204,18 @@ export const chainUrls = {
     chainId: 56,
     name: networkNames[56],
   },
-  // TODO : change to mainnet rpc
+  // TODO : H2W change to mainnet rpc
   1619: {
     rpc: REACT_APP_BN_RPC_URL.split(' '),
     explorer: 'https://testnet-explorer.bahamaschain.io',
-    chainId: 56,
-    name: networkNames[56],
+    chainId: 1619,
+    name: networkNames[1619], 
+  },
+  35: {
+    rpc: REACT_APP_BN_RPC_URL.split(' '),
+    explorer: 'https://explorer.bahamaschain.io',
+    chainId: 35,
+    name: networkNames[35],
   },
   77: {
     rpc: REACT_APP_SOKOL_RPC_URL.split(' '),
