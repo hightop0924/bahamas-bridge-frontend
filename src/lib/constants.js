@@ -16,6 +16,8 @@ export const POA_CURRENCY_LOGO =
   'https://s2.coinmarketcap.com/static/img/coins/64x64/2548.png';
 export const BN_CURRENCY_LOGO =
   'https://s2.coinmarketcap.com/static/img/coins/64x64/2548.png';
+export const USDT_CURRENCY_LOGO =
+  'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png';
 
 export const LARGEST_UINT256 = BigNumber.from(
   '115792089237316195423570985008687907853269984665640564039457584007913129639935',

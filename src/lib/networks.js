@@ -7,6 +7,7 @@ import {
   nativeCurrencies,
   POA_XDAI_BRIDGE,
   ADDRESS_ZERO,
+  USDT_CURRENCY_LOGO
 } from 'lib/constants';
 
 export {
@@ -248,10 +249,11 @@ export const defaultTokens = {
   [ETH_BN_BRIDGE]: {
     35: nativeCurrencies[35],
     1: {
-      address: '0xABD0061755A180052703f72F06CEf8c2Eb1384B6',
+      address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
       chainId: 1,
-      symbol: 'BN',
-      name: 'BN Token',
+      symbol: 'USDT',
+      name: 'Tether USD',
+      logoURI: USDT_CURRENCY_LOGO
     },
   },
 };

@@ -1,4 +1,4 @@
-import { Flex, Grid, Text, useBreakpointValue, VStack } from '@chakra-ui/react';
+import { Flex, Grid, Link, Text, useBreakpointValue, VStack } from '@chakra-ui/react';
 import { ActionButtons } from 'components/bridge/ActionButtons';
 import { AdvancedMenu } from 'components/bridge/AdvancedMenu';
 import { FromToken } from 'components/bridge/FromToken';
@@ -113,10 +113,17 @@ export const BridgeTokens = () => {
             <ToToken />
           </Grid>
           <VStack spacing={2} w="100%">
-            <Text fontWeight="bold" textAlign="center">
-              This bridge is for only transfer of other tokens on Ethereum Mainnet to Bahamas Mainnet.<br/>
-              To transfer BN coins, please use the other bridge
+            <Text borderRadius='md' fontWeight="bold" textAlign="center" padding="3px 3px 3px 3px" background="#dc3545">
+              Bridge Fee is 0.3%
             </Text>
+            <Text fontWeight="bold" textAlign="center">
+              This bridge is for only transfer of other tokens between Ethereum Mainnet and Bahamas Mainnet.<br />
+              To transfer BN coins, please use the other <Link href="https://bridge.bahamaschain.io" color="blue.500" fontWeight="bold" isExternal>
+              bridge
+            </Link>
+            </Text>
+            
+
             {/* <AdvancedMenu /> */}
             {/* <SystemFeedback {...{ tokenLimits, fetching, refresh }} /> */}
           </VStack>

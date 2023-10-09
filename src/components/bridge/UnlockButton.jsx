@@ -131,9 +131,9 @@ export const UnlockButton = ({ approval, isValid }) => {
         ) : (
           <>
             <Text color="white" fontWeight="bold">
-              {buttonDisabled ? 'Unlocked' : 'Unlock'}
+              {buttonDisabled ? 'Approve' : 'Approve'}
             </Text>
-            <Image src={UnlockIcon} ml={2} />
+            {/* <Image src={UnlockIcon} ml={2} /> */}
           </>
         )}
       </Flex>

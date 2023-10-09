@@ -370,8 +370,8 @@ export const BridgeLoadingModal = () => {
     <>
       {/* <Button
         onClick={() => { setOpenDlg(true) }}
-      >Open Modal</Button>
-      {completeDlg()} */}
+      >Open Modal</Button> */}
+      {completeDlg()} 
       {claimTransfer()}
       {claimAllTokens()}
       {loader()}
